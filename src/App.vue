@@ -2,7 +2,7 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
     <h2>{{ title }}</h2>
-    <add-item-component></add-item-component>
+    <add-item-component v-on:new-item="addItem"></add-item-component>
     <items-component :items="items"></items-component>
     <div class="footer">
       <hr/>
@@ -28,6 +28,14 @@ export default {
               { text: 'Bananas', checked: true },
               { text: 'Apples', checked: false }
       ]
+    }
+  },
+  methods: {
+    addItem (text) {
+      this.items.push({
+        text: text,
+        checked: false
+      })
     }
   },
   components: {
