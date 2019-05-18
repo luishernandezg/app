@@ -1,17 +1,41 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h2>{{ title }}</h2>
+    <add-item-component></add-item-component>
+    <items-component :items="items"></items-component>
+    <div class="footer">
+      <hr/>
+      <change-title-component v-model="title"></change-title-component>
+    </div>
+
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue'
+// import Greetings from "./components/Greetings";
+import AddItemComponent from "./components/AddItemComponent";
+import ItemsComponent from "./components/ItemsComponent";
+import ChangeTitleComponent from "./components/ChangeTitleComponent";
 
 export default {
   name: 'app',
+  data: function () {
+    return {
+      title: 'Lista',
+      items: [
+              { text: 'Bananas', checked: true },
+              { text: 'Apples', checked: false }
+      ]
+    }
+  },
   components: {
-    HelloWorld
+    // Greetings,
+    AddItemComponent,
+    ItemsComponent,
+    ChangeTitleComponent
+    // HelloWorld
   }
 }
 </script>
