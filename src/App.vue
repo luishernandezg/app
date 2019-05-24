@@ -1,23 +1,25 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <h2>{{ title }}</h2>
-    <add-item-component v-on:new-item="addItem"></add-item-component>
-    <items-component :items="items"></items-component>
-    <div class="footer">
-      <hr/>
-      <change-title-component v-model="title"></change-title-component>
-    </div>
-
+    <h2>
+      <span>Pomodoro</span>
+      <controls-component></controls-component>
+    </h2>
+    <state-title-component></state-title-component>
+    <countdown-component></countdown-component>
+    <kittens-component></kittens-component>
   </div>
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
 // import Greetings from "./components/Greetings";
-import AddItemComponent from "./components/AddItemComponent";
+/*import AddItemComponent from "./components/AddItemComponent";
 import ItemsComponent from "./components/ItemsComponent";
-import ChangeTitleComponent from "./components/ChangeTitleComponent";
+import ChangeTitleComponent from "./components/ChangeTitleComponent";*/
+
+import ControlsComponent from "./components/ControlsComponent";
+import CountdownComponent from "./components/CountdownComponent";
+import StateTitleComponent from "./components/StateTitleComponent";
 
 export default {
   name: 'app',
@@ -40,9 +42,10 @@ export default {
   },
   components: {
     // Greetings,
-    AddItemComponent,
-    ItemsComponent,
-    ChangeTitleComponent
+    ControlsComponent,
+    CountdownComponent,
+    KittensComponent,
+    StateTitleComponent
     // HelloWorld
   }
 }
