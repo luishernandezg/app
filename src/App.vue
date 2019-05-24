@@ -20,6 +20,7 @@ import ChangeTitleComponent from "./components/ChangeTitleComponent";*/
 import ControlsComponent from "./components/ControlsComponent";
 import CountdownComponent from "./components/CountdownComponent";
 import StateTitleComponent from "./components/StateTitleComponent";
+import KittensComponent from "./components/KittensComponent";
 
 export default {
   name: 'app',
