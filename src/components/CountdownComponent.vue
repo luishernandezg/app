@@ -1,14 +1,20 @@
 <template>
     <div class="well">
         <div class="pomodoro-timer">
-            <span>{{ min }}</span>:<span>{{ sec }}</span>
+            <span>{{ min | leftpad }}:{{ sec | leftpad }}</span>
         </div>
     </div>
 </template>
 
 <script>
     export default {
-        name: "countdown-component"
+        name: "countdown-component",
+        data () {
+            return {
+                min: 3,
+                sec: 30
+            }
+        }
     }
 </script>
 

@@ -1,7 +1,6 @@
 <template>
     <h2>
-        <span>Pomodoro</span>
-        // Looks like our ControlsComponent
+        <span>{{ 'Pomodoro' | uppercase | addspace }}</span>
         <button >
             <i class="glyphicon glyphicon-play"></i>
         </button>
