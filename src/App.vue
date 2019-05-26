@@ -1,49 +1,48 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <h2>{{ title }}</h2>
-    <add-item-component v-on:new-item="addItem"></add-item-component>
-    <items-component :items="items"></items-component>
-    <div class="footer">
-      <hr/>
-      <change-title-component v-model="title"></change-title-component>
+  <div id="app" class="container">
+    <ul class="nav nav-tabs" role="tablist">
+      <li v-for="list in shoppinglists" role="presentation">
+        <a v-bind:href="'#' + list.id" v-bind:aria-controls="list.id"
+           role="tab" datatoggle="tab">{{list.title}}</a>
+      </li>
+    </ul>
+    <div class="tab-content">
+      <div v-for="list in shoppinglists" class="tab-pane" role="tabpanel" v-bind:id="list.id">
+        <shopping-list-component  v-bind:items="list.items"> </shopping-list-component>
+      </div>
     </div>
-
   </div>
 </template>
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
 // import Greetings from "./components/Greetings";
-import AddItemComponent from "./components/AddItemComponent";
-import ItemsComponent from "./components/ItemsComponent";
-import ChangeTitleComponent from "./components/ChangeTitleComponent";
+
+
+import ShoppingListComponent from "./components/ShoppingListComponent";
 
 export default {
   name: 'app',
-  data: function () {
+  components: {
+    ShoppingListComponent,
+  },
+  data () {
     return {
-      title: 'Lista',
-      items: [
-              { text: 'Bananas', checked: true },
-              { text: 'Apples', checked: false }
+      shoppinglists: [
+        {
+          id: 'groceries',
+          title: 'Groceries',
+          items: [{text: 'Bananas', checked: true},
+            {text: 'Apples', checked: false}]
+        },
+        {
+          id: 'clothes',
+          title: 'Clothes',
+          items: [{text: 'black dress', checked: false},
+            {text: 'all stars', checked: false}]
+        }
       ]
     }
-  },
-  methods: {
-    addItem (text) {
-      this.items.push({
-        text: text,
-        checked: false
-      })
-    }
-  },
-  components: {
-    // Greetings,
-    AddItemComponent,
-    ItemsComponent,
-    ChangeTitleComponent
-    // HelloWorld
   }
 }
 </script>
