@@ -1,12 +1,17 @@
 <template>
     <div class="well">
-        <img :src="catImgSrc" />
+        <img v-bind:src="catimgsrc" />
     </div>
 </template>
 
 <script>
     export default {
-        name: "kittens-component"
+        name: "kittens-component",
+        data () {
+            return {
+                catimgsrc: "http://thecatapi.com/api/images/get?size=med"
+            }
+        }
     }
 </script>
 
