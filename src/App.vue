@@ -1,14 +1,16 @@
 <template>
   <div id="app" class="container">
     <ul class="nav nav-tabs" role="tablist">
-      <li v-for="list in shoppinglists" role="presentation">
+      <li v-bind:class= "index===1 ? 'active' :''" v-for="(list, index) in shoppinglists" role="presentation">
         <a v-bind:href="'#' + list.id" v-bind:aria-controls="list.id"
            role="tab" datatoggle="tab">{{list.title}}</a>
       </li>
     </ul>
     <div class="tab-content">
-      <div v-for="list in shoppinglists" class="tab-pane" role="tabpanel" v-bind:id="list.id">
-        <shopping-list-component  v-bind:items="list.items"> </shopping-list-component>
+      <div v-bind:class= "index===1 ? 'active' : ''"
+           v-for="(list,index) in shoppinglists" class="tab-pane"
+           role="tabpanel" v-bind:id="list.id">
+        <shopping-list-component v-bind:title="list.title" v-bind:items="list.items"> </shopping-list-component>
       </div>
     </div>
   </div>

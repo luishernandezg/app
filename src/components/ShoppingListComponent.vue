@@ -1,11 +1,11 @@
 <template>
     <div>
         <h2>{{ title }}</h2>
-        <add-item-component></add-item-component>
+        <add-item-component v-on:add="addItem"></add-item-component>
         <items-component v-bind:items="items"></items-component>
         <div class="footer">
             <hr />
-            <change-title-component></change-title-component>
+            <change-title-component v-model="title"></change-title-component>
         </div>
     </div>
 </template>
@@ -22,6 +22,14 @@
             AddItemComponent,
             ItemsComponent,
             ChangeTitleComponent
+        },
+        methods: {
+            addItem (text) {
+                this.items.push({
+                    text: text,
+                    checked: false
+                })
+            }
         }
     }
 </script>
