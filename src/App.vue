@@ -1,18 +1,23 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+      <show-greetings-component :msg='msg'></show-greetings-component>
+      <change-greetings-component :msg='msg'></change-greetings-component>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+    import ShowGreetingsComponent from './components/ShowGreetingsComponent.vue'
+    import ChangeGreetingsComponent from './components/ChangeGreetingsComponent.vue'
+    import store from './vuex/store'
 
 export default {
   name: 'app',
   components: {
-    HelloWorld
-  }
+      ShowGreetingsComponent,
+      ChangeGreetingsComponent
+  },
+    store
 }
 </script>
 
