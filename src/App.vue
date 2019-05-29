@@ -10,7 +10,7 @@
            v-for="(list,index) in shoppinglists" class="tab-pane"
            role="tabpanel" v-bind:id="list.id">
         <shopping-list-component :id="list.id"
-          v-bind:title="list.title" v-bind:items="list.items" v-on:changeTitle="onChangeTitle">
+          v-bind:title="list.title" v-bind:items="list.items">
         </shopping-list-component>
       </div>
     </div>
@@ -18,42 +18,23 @@
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
-// import Greetings from "./components/Greetings";
-
 
 import ShoppingListComponent from "./components/ShoppingListComponent";
 import ShoppingListTitleComponent from "./components/ShoppingListTitleComponent.";
-import _ from 'underscore'
+import store from './vuex/store'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'app',
+  store: store,
   components: {
     ShoppingListComponent,
     ShoppingListTitleComponent
   },
-  data () {
-    return {
-      shoppinglists: [
-        {
-          id: 'groceries',
-          title: 'Groceries',
-          items: [{text: 'Bananas', checked: true},
-            {text: 'Apples', checked: false}]
-        },
-        {
-          id: 'clothes',
-          title: 'Clothes',
-          items: [{text: 'black dress', checked: false},
-            {text: 'all stars', checked: false}]
-        }
-      ]
-    }
-  },
+  computed: mapGetters({
+      shoppinglists: 'getLists'
+  }),
   methods: {
-    onChangeTitle (id, text) {
-      _.findWhere(this.shoppinglists, { id: id }).title = text
-    }
   }
 }
 </script>
