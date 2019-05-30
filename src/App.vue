@@ -13,16 +13,11 @@
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
-// import Greetings from "./components/Greetings";
-/*import AddItemComponent from "./components/AddItemComponent";
-import ItemsComponent from "./components/ItemsComponent";
-import ChangeTitleComponent from "./components/ChangeTitleComponent";*/
-
 import ControlsComponent from "./components/ControlsComponent";
 import CountdownComponent from "./components/CountdownComponent";
 import StateTitleComponent from "./components/StateTitleComponent";
 import KittensComponent from "./components/KittensComponent";
+import store from './vuex/store'
 
 window.data = {
   kittens: true,
@@ -49,7 +44,8 @@ export default {
     KittensComponent,
     StateTitleComponent
     // HelloWorld
-  }
+  },
+  store
 }
 </script>
 
